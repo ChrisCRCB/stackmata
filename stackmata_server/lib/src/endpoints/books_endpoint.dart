@@ -5,6 +5,8 @@ import '../generated/protocol.dart';
 /// The endpoint for working with books.
 class BooksEndpoint extends Endpoint {
   /// Upload a list of books.
+  ///
+  /// Before any books are uploaded, all current rows will be deleted.
   Future<int> uploadBooks(final Session session, final List<Book> books) async {
     final count = await session.dbNext.transaction((final transaction) async {
       await Book.db.deleteWhere(
@@ -201,6 +203,8 @@ class BooksEndpoint extends Endpoint {
   }
 
   /// Get all the books in the database.
+  ///
+  /// Books will be ordered by title nd [pagination] will be applied.
   Future<List<Book>> getBooks(
     final Session session,
     final Pagination pagination,

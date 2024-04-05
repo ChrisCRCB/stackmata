@@ -23,6 +23,8 @@ class EndpointBooks extends _i1.EndpointRef {
   String get name => 'books';
 
   /// Upload a list of books.
+  ///
+  /// Before any books are uploaded, all current rows will be deleted.
   _i2.Future<int> uploadBooks(List<_i3.Book> books) =>
       caller.callServerEndpoint<int>(
         'books',
@@ -31,6 +33,8 @@ class EndpointBooks extends _i1.EndpointRef {
       );
 
   /// Get all the books in the database.
+  ///
+  /// Books will be ordered by title nd [pagination] will be applied.
   _i2.Future<List<_i3.Book>> getBooks(_i4.Pagination pagination) =>
       caller.callServerEndpoint<List<_i3.Book>>(
         'books',
