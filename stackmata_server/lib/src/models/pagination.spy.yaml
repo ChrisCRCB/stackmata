@@ -1,0 +1,8 @@
+### Used for defining paginations.
+class: Pagination
+fields:
+  ### The page number.
+  pageNumber: int
+
+  ### The number of records to show.
+  numberOfRecords: int

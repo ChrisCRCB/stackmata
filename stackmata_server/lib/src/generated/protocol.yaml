@@ -1,2 +1,5 @@
+books:
+  - uploadBooks:
+  - getBooks:
 example:
   - hello:

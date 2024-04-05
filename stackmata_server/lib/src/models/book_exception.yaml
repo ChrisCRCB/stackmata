@@ -1,0 +1,8 @@
+### An exception relating to a book.
+exception: BookException
+fields:
+  ### The book in question.
+  book: Book
+
+  ### The text of the message.
+  message: String

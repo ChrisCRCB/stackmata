@@ -8,6 +8,9 @@ fields:
   ### The book authors of this book.
   authors: List<BookAuthorSecondary>?, relation(name=book_authors)
 
+  ### The authors to be sent by the client.
+  clientBookAuthors: List<BookAuthor>, !persist
+
   ### The publisher of this book.
   publisher: String
 
@@ -17,14 +20,26 @@ fields:
   ### The languages of this book.
   language: List<BookLanguageSecondary>?, relation(name=book_language_secondary)
 
+  ### Languages sent by the client.
+  clientLanguages: List<BookLanguage>, !persist
+
   ### Any series this book is part of.
   series: List<BookSeriesSecondary>?, relation(name=book_series)
+
+  ### The series sent by the client.
+  clientSeries: List<BookSeries>, !persist
 
   ### Any awards this book has won.
   awards: List<BookAwardSecondary>?, relation(name=book_awards)
 
+  ### Awards sent by the client.
+  clientAwards: List<BookAward>, !persist
+
   ### The genres of this book.
   genres: List<BookGenreSecondary>?, relation(name=book_genres)
+
+  ### Genres sent by the client.
+  clientGenres: List<BookGenre>, !persist
 
   ### Data attribution.
   source: String
@@ -34,6 +49,9 @@ fields:
 
   ### The formats this book is in.
   formats: List<BookFormatSecondary>?, relation(name=book_formats)
+
+  ### Formats sent by the client.
+  clientFormats: List<BookFormat>, !persist
 
   ### The number of copies we have for borrowing.
   numberOfCopies: int

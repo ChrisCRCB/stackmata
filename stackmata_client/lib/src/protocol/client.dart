@@ -10,7 +10,34 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:serverpod_client/serverpod_client.dart' as _i1;
 import 'dart:async' as _i2;
-import 'protocol.dart' as _i3;
+import 'package:stackmata_client/src/protocol/book.dart' as _i3;
+import 'package:stackmata_client/src/protocol/pagination.dart' as _i4;
+import 'protocol.dart' as _i5;
+
+/// The endpoint for working with books.
+/// {@category Endpoint}
+class EndpointBooks extends _i1.EndpointRef {
+  EndpointBooks(_i1.EndpointCaller caller) : super(caller);
+
+  @override
+  String get name => 'books';
+
+  /// Upload a list of books.
+  _i2.Future<int> uploadBooks(List<_i3.Book> books) =>
+      caller.callServerEndpoint<int>(
+        'books',
+        'uploadBooks',
+        {'books': books},
+      );
+
+  /// Get all the books in the database.
+  _i2.Future<List<_i3.Book>> getBooks(_i4.Pagination pagination) =>
+      caller.callServerEndpoint<List<_i3.Book>>(
+        'books',
+        'getBooks',
+        {'pagination': pagination},
+      );
+}
 
 /// This is an example endpoint of your server. It's best practice to use the
 /// `Endpoint` ending of the class name, but it will be removed when accessing
@@ -50,19 +77,25 @@ class Client extends _i1.ServerpodClient {
     Duration? connectionTimeout,
   }) : super(
           host,
-          _i3.Protocol(),
+          _i5.Protocol(),
           securityContext: securityContext,
           authenticationKeyManager: authenticationKeyManager,
           streamingConnectionTimeout: streamingConnectionTimeout,
           connectionTimeout: connectionTimeout,
         ) {
+    books = EndpointBooks(this);
     example = EndpointExample(this);
   }
+
+  late final EndpointBooks books;
 
   late final EndpointExample example;
 
   @override
-  Map<String, _i1.EndpointRef> get endpointRefLookup => {'example': example};
+  Map<String, _i1.EndpointRef> get endpointRefLookup => {
+        'books': books,
+        'example': example,
+      };
 
   @override
   Map<String, _i1.ModuleEndpointCaller> get moduleLookup => {};

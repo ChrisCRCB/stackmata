@@ -16,21 +16,25 @@ import 'book_author_secondary.dart' as _i4;
 import 'book_award.dart' as _i5;
 import 'book_award_secondary.dart' as _i6;
 import 'book_call_number.dart' as _i7;
-import 'book_format.dart' as _i8;
-import 'book_format_secondary.dart' as _i9;
-import 'book_genre.dart' as _i10;
-import 'book_genre_secondary.dart' as _i11;
-import 'book_language.dart' as _i12;
-import 'book_language_secondary.dart' as _i13;
-import 'book_series.dart' as _i14;
-import 'book_series_secondary.dart' as _i15;
-import 'protocol.dart' as _i16;
+import 'book_exception.dart' as _i8;
+import 'book_format.dart' as _i9;
+import 'book_format_secondary.dart' as _i10;
+import 'book_genre.dart' as _i11;
+import 'book_genre_secondary.dart' as _i12;
+import 'book_language.dart' as _i13;
+import 'book_language_secondary.dart' as _i14;
+import 'book_series.dart' as _i15;
+import 'book_series_secondary.dart' as _i16;
+import 'pagination.dart' as _i17;
+import 'protocol.dart' as _i18;
+import 'package:stackmata_client/src/protocol/book.dart' as _i19;
 export 'book.dart';
 export 'book_author.dart';
 export 'book_author_secondary.dart';
 export 'book_award.dart';
 export 'book_award_secondary.dart';
 export 'book_call_number.dart';
+export 'book_exception.dart';
 export 'book_format.dart';
 export 'book_format_secondary.dart';
 export 'book_genre.dart';
@@ -39,6 +43,7 @@ export 'book_language.dart';
 export 'book_language_secondary.dart';
 export 'book_series.dart';
 export 'book_series_secondary.dart';
+export 'pagination.dart';
 export 'client.dart';
 
 class Protocol extends _i1.SerializationManager {
@@ -77,29 +82,35 @@ class Protocol extends _i1.SerializationManager {
     if (t == _i7.BookCallNumber) {
       return _i7.BookCallNumber.fromJson(data, this) as T;
     }
-    if (t == _i8.BookFormat) {
-      return _i8.BookFormat.fromJson(data, this) as T;
+    if (t == _i8.BookException) {
+      return _i8.BookException.fromJson(data, this) as T;
     }
-    if (t == _i9.BookFormatSecondary) {
-      return _i9.BookFormatSecondary.fromJson(data, this) as T;
+    if (t == _i9.BookFormat) {
+      return _i9.BookFormat.fromJson(data, this) as T;
     }
-    if (t == _i10.BookGenre) {
-      return _i10.BookGenre.fromJson(data, this) as T;
+    if (t == _i10.BookFormatSecondary) {
+      return _i10.BookFormatSecondary.fromJson(data, this) as T;
     }
-    if (t == _i11.BookGenreSecondary) {
-      return _i11.BookGenreSecondary.fromJson(data, this) as T;
+    if (t == _i11.BookGenre) {
+      return _i11.BookGenre.fromJson(data, this) as T;
     }
-    if (t == _i12.BookLanguage) {
-      return _i12.BookLanguage.fromJson(data, this) as T;
+    if (t == _i12.BookGenreSecondary) {
+      return _i12.BookGenreSecondary.fromJson(data, this) as T;
     }
-    if (t == _i13.BookLanguageSecondary) {
-      return _i13.BookLanguageSecondary.fromJson(data, this) as T;
+    if (t == _i13.BookLanguage) {
+      return _i13.BookLanguage.fromJson(data, this) as T;
     }
-    if (t == _i14.BookSeries) {
-      return _i14.BookSeries.fromJson(data, this) as T;
+    if (t == _i14.BookLanguageSecondary) {
+      return _i14.BookLanguageSecondary.fromJson(data, this) as T;
     }
-    if (t == _i15.BookSeriesSecondary) {
-      return _i15.BookSeriesSecondary.fromJson(data, this) as T;
+    if (t == _i15.BookSeries) {
+      return _i15.BookSeries.fromJson(data, this) as T;
+    }
+    if (t == _i16.BookSeriesSecondary) {
+      return _i16.BookSeriesSecondary.fromJson(data, this) as T;
+    }
+    if (t == _i17.Pagination) {
+      return _i17.Pagination.fromJson(data, this) as T;
     }
     if (t == _i1.getType<_i2.Book?>()) {
       return (data != null ? _i2.Book.fromJson(data, this) : null) as T;
@@ -123,129 +134,165 @@ class Protocol extends _i1.SerializationManager {
       return (data != null ? _i7.BookCallNumber.fromJson(data, this) : null)
           as T;
     }
-    if (t == _i1.getType<_i8.BookFormat?>()) {
-      return (data != null ? _i8.BookFormat.fromJson(data, this) : null) as T;
-    }
-    if (t == _i1.getType<_i9.BookFormatSecondary?>()) {
-      return (data != null
-          ? _i9.BookFormatSecondary.fromJson(data, this)
-          : null) as T;
-    }
-    if (t == _i1.getType<_i10.BookGenre?>()) {
-      return (data != null ? _i10.BookGenre.fromJson(data, this) : null) as T;
-    }
-    if (t == _i1.getType<_i11.BookGenreSecondary?>()) {
-      return (data != null
-          ? _i11.BookGenreSecondary.fromJson(data, this)
-          : null) as T;
-    }
-    if (t == _i1.getType<_i12.BookLanguage?>()) {
-      return (data != null ? _i12.BookLanguage.fromJson(data, this) : null)
+    if (t == _i1.getType<_i8.BookException?>()) {
+      return (data != null ? _i8.BookException.fromJson(data, this) : null)
           as T;
     }
-    if (t == _i1.getType<_i13.BookLanguageSecondary?>()) {
+    if (t == _i1.getType<_i9.BookFormat?>()) {
+      return (data != null ? _i9.BookFormat.fromJson(data, this) : null) as T;
+    }
+    if (t == _i1.getType<_i10.BookFormatSecondary?>()) {
       return (data != null
-          ? _i13.BookLanguageSecondary.fromJson(data, this)
+          ? _i10.BookFormatSecondary.fromJson(data, this)
           : null) as T;
     }
-    if (t == _i1.getType<_i14.BookSeries?>()) {
-      return (data != null ? _i14.BookSeries.fromJson(data, this) : null) as T;
+    if (t == _i1.getType<_i11.BookGenre?>()) {
+      return (data != null ? _i11.BookGenre.fromJson(data, this) : null) as T;
     }
-    if (t == _i1.getType<_i15.BookSeriesSecondary?>()) {
+    if (t == _i1.getType<_i12.BookGenreSecondary?>()) {
       return (data != null
-          ? _i15.BookSeriesSecondary.fromJson(data, this)
+          ? _i12.BookGenreSecondary.fromJson(data, this)
           : null) as T;
     }
-    if (t == _i1.getType<List<_i16.BookAuthorSecondary>?>()) {
+    if (t == _i1.getType<_i13.BookLanguage?>()) {
+      return (data != null ? _i13.BookLanguage.fromJson(data, this) : null)
+          as T;
+    }
+    if (t == _i1.getType<_i14.BookLanguageSecondary?>()) {
+      return (data != null
+          ? _i14.BookLanguageSecondary.fromJson(data, this)
+          : null) as T;
+    }
+    if (t == _i1.getType<_i15.BookSeries?>()) {
+      return (data != null ? _i15.BookSeries.fromJson(data, this) : null) as T;
+    }
+    if (t == _i1.getType<_i16.BookSeriesSecondary?>()) {
+      return (data != null
+          ? _i16.BookSeriesSecondary.fromJson(data, this)
+          : null) as T;
+    }
+    if (t == _i1.getType<_i17.Pagination?>()) {
+      return (data != null ? _i17.Pagination.fromJson(data, this) : null) as T;
+    }
+    if (t == _i1.getType<List<_i18.BookAuthorSecondary>?>()) {
       return (data != null
           ? (data as List)
-              .map((e) => deserialize<_i16.BookAuthorSecondary>(e))
+              .map((e) => deserialize<_i18.BookAuthorSecondary>(e))
               .toList()
           : null) as dynamic;
     }
-    if (t == _i1.getType<List<_i16.BookLanguageSecondary>?>()) {
+    if (t == List<_i18.BookAuthor>) {
+      return (data as List).map((e) => deserialize<_i18.BookAuthor>(e)).toList()
+          as dynamic;
+    }
+    if (t == _i1.getType<List<_i18.BookLanguageSecondary>?>()) {
       return (data != null
           ? (data as List)
-              .map((e) => deserialize<_i16.BookLanguageSecondary>(e))
+              .map((e) => deserialize<_i18.BookLanguageSecondary>(e))
               .toList()
           : null) as dynamic;
     }
-    if (t == _i1.getType<List<_i16.BookSeriesSecondary>?>()) {
+    if (t == List<_i18.BookLanguage>) {
+      return (data as List)
+          .map((e) => deserialize<_i18.BookLanguage>(e))
+          .toList() as dynamic;
+    }
+    if (t == _i1.getType<List<_i18.BookSeriesSecondary>?>()) {
       return (data != null
           ? (data as List)
-              .map((e) => deserialize<_i16.BookSeriesSecondary>(e))
+              .map((e) => deserialize<_i18.BookSeriesSecondary>(e))
               .toList()
           : null) as dynamic;
     }
-    if (t == _i1.getType<List<_i16.BookAwardSecondary>?>()) {
+    if (t == List<_i18.BookSeries>) {
+      return (data as List).map((e) => deserialize<_i18.BookSeries>(e)).toList()
+          as dynamic;
+    }
+    if (t == _i1.getType<List<_i18.BookAwardSecondary>?>()) {
       return (data != null
           ? (data as List)
-              .map((e) => deserialize<_i16.BookAwardSecondary>(e))
+              .map((e) => deserialize<_i18.BookAwardSecondary>(e))
               .toList()
           : null) as dynamic;
     }
-    if (t == _i1.getType<List<_i16.BookGenreSecondary>?>()) {
+    if (t == List<_i18.BookAward>) {
+      return (data as List).map((e) => deserialize<_i18.BookAward>(e)).toList()
+          as dynamic;
+    }
+    if (t == _i1.getType<List<_i18.BookGenreSecondary>?>()) {
       return (data != null
           ? (data as List)
-              .map((e) => deserialize<_i16.BookGenreSecondary>(e))
+              .map((e) => deserialize<_i18.BookGenreSecondary>(e))
               .toList()
           : null) as dynamic;
     }
-    if (t == _i1.getType<List<_i16.BookFormatSecondary>?>()) {
+    if (t == List<_i18.BookGenre>) {
+      return (data as List).map((e) => deserialize<_i18.BookGenre>(e)).toList()
+          as dynamic;
+    }
+    if (t == _i1.getType<List<_i18.BookFormatSecondary>?>()) {
       return (data != null
           ? (data as List)
-              .map((e) => deserialize<_i16.BookFormatSecondary>(e))
+              .map((e) => deserialize<_i18.BookFormatSecondary>(e))
               .toList()
           : null) as dynamic;
     }
-    if (t == _i1.getType<List<_i16.BookCallNumber>?>()) {
+    if (t == List<_i18.BookFormat>) {
+      return (data as List).map((e) => deserialize<_i18.BookFormat>(e)).toList()
+          as dynamic;
+    }
+    if (t == _i1.getType<List<_i18.BookCallNumber>?>()) {
       return (data != null
           ? (data as List)
-              .map((e) => deserialize<_i16.BookCallNumber>(e))
+              .map((e) => deserialize<_i18.BookCallNumber>(e))
               .toList()
           : null) as dynamic;
     }
-    if (t == _i1.getType<List<_i16.BookAuthorSecondary>?>()) {
+    if (t == _i1.getType<List<_i18.BookAuthorSecondary>?>()) {
       return (data != null
           ? (data as List)
-              .map((e) => deserialize<_i16.BookAuthorSecondary>(e))
+              .map((e) => deserialize<_i18.BookAuthorSecondary>(e))
               .toList()
           : null) as dynamic;
     }
-    if (t == _i1.getType<List<_i16.BookAwardSecondary>?>()) {
+    if (t == _i1.getType<List<_i18.BookAwardSecondary>?>()) {
       return (data != null
           ? (data as List)
-              .map((e) => deserialize<_i16.BookAwardSecondary>(e))
+              .map((e) => deserialize<_i18.BookAwardSecondary>(e))
               .toList()
           : null) as dynamic;
     }
-    if (t == _i1.getType<List<_i16.BookFormatSecondary>?>()) {
+    if (t == _i1.getType<List<_i18.BookFormatSecondary>?>()) {
       return (data != null
           ? (data as List)
-              .map((e) => deserialize<_i16.BookFormatSecondary>(e))
+              .map((e) => deserialize<_i18.BookFormatSecondary>(e))
               .toList()
           : null) as dynamic;
     }
-    if (t == _i1.getType<List<_i16.BookGenreSecondary>?>()) {
+    if (t == _i1.getType<List<_i18.BookGenreSecondary>?>()) {
       return (data != null
           ? (data as List)
-              .map((e) => deserialize<_i16.BookGenreSecondary>(e))
+              .map((e) => deserialize<_i18.BookGenreSecondary>(e))
               .toList()
           : null) as dynamic;
     }
-    if (t == _i1.getType<List<_i16.BookLanguageSecondary>?>()) {
+    if (t == _i1.getType<List<_i18.BookLanguageSecondary>?>()) {
       return (data != null
           ? (data as List)
-              .map((e) => deserialize<_i16.BookLanguageSecondary>(e))
+              .map((e) => deserialize<_i18.BookLanguageSecondary>(e))
               .toList()
           : null) as dynamic;
     }
-    if (t == _i1.getType<List<_i16.BookSeriesSecondary>?>()) {
+    if (t == _i1.getType<List<_i18.BookSeriesSecondary>?>()) {
       return (data != null
           ? (data as List)
-              .map((e) => deserialize<_i16.BookSeriesSecondary>(e))
+              .map((e) => deserialize<_i18.BookSeriesSecondary>(e))
               .toList()
           : null) as dynamic;
+    }
+    if (t == List<_i19.Book>) {
+      return (data as List).map((e) => deserialize<_i19.Book>(e)).toList()
+          as dynamic;
     }
     return super.deserialize<T>(data, t);
   }
@@ -270,29 +317,35 @@ class Protocol extends _i1.SerializationManager {
     if (data is _i7.BookCallNumber) {
       return 'BookCallNumber';
     }
-    if (data is _i8.BookFormat) {
+    if (data is _i8.BookException) {
+      return 'BookException';
+    }
+    if (data is _i9.BookFormat) {
       return 'BookFormat';
     }
-    if (data is _i9.BookFormatSecondary) {
+    if (data is _i10.BookFormatSecondary) {
       return 'BookFormatSecondary';
     }
-    if (data is _i10.BookGenre) {
+    if (data is _i11.BookGenre) {
       return 'BookGenre';
     }
-    if (data is _i11.BookGenreSecondary) {
+    if (data is _i12.BookGenreSecondary) {
       return 'BookGenreSecondary';
     }
-    if (data is _i12.BookLanguage) {
+    if (data is _i13.BookLanguage) {
       return 'BookLanguage';
     }
-    if (data is _i13.BookLanguageSecondary) {
+    if (data is _i14.BookLanguageSecondary) {
       return 'BookLanguageSecondary';
     }
-    if (data is _i14.BookSeries) {
+    if (data is _i15.BookSeries) {
       return 'BookSeries';
     }
-    if (data is _i15.BookSeriesSecondary) {
+    if (data is _i16.BookSeriesSecondary) {
       return 'BookSeriesSecondary';
+    }
+    if (data is _i17.Pagination) {
+      return 'Pagination';
     }
     return super.getClassNameForObject(data);
   }
@@ -317,29 +370,35 @@ class Protocol extends _i1.SerializationManager {
     if (data['className'] == 'BookCallNumber') {
       return deserialize<_i7.BookCallNumber>(data['data']);
     }
+    if (data['className'] == 'BookException') {
+      return deserialize<_i8.BookException>(data['data']);
+    }
     if (data['className'] == 'BookFormat') {
-      return deserialize<_i8.BookFormat>(data['data']);
+      return deserialize<_i9.BookFormat>(data['data']);
     }
     if (data['className'] == 'BookFormatSecondary') {
-      return deserialize<_i9.BookFormatSecondary>(data['data']);
+      return deserialize<_i10.BookFormatSecondary>(data['data']);
     }
     if (data['className'] == 'BookGenre') {
-      return deserialize<_i10.BookGenre>(data['data']);
+      return deserialize<_i11.BookGenre>(data['data']);
     }
     if (data['className'] == 'BookGenreSecondary') {
-      return deserialize<_i11.BookGenreSecondary>(data['data']);
+      return deserialize<_i12.BookGenreSecondary>(data['data']);
     }
     if (data['className'] == 'BookLanguage') {
-      return deserialize<_i12.BookLanguage>(data['data']);
+      return deserialize<_i13.BookLanguage>(data['data']);
     }
     if (data['className'] == 'BookLanguageSecondary') {
-      return deserialize<_i13.BookLanguageSecondary>(data['data']);
+      return deserialize<_i14.BookLanguageSecondary>(data['data']);
     }
     if (data['className'] == 'BookSeries') {
-      return deserialize<_i14.BookSeries>(data['data']);
+      return deserialize<_i15.BookSeries>(data['data']);
     }
     if (data['className'] == 'BookSeriesSecondary') {
-      return deserialize<_i15.BookSeriesSecondary>(data['data']);
+      return deserialize<_i16.BookSeriesSecondary>(data['data']);
+    }
+    if (data['className'] == 'Pagination') {
+      return deserialize<_i17.Pagination>(data['data']);
     }
     return super.deserializeByClassName(data);
   }
