@@ -1,0 +1,9 @@
+### Link books to authors.
+class: BookGenreSecondary
+table: book_genre_secondary
+fields:
+  ### The genre to use.
+  genre: BookGenre?, relation(name=book_genre_secondary, onDelete=cascade)
+
+  ### The book to use.
+  book: Book?, relation(name=book_genres, onDelete=cascade)

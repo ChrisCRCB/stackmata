@@ -1,0 +1,9 @@
+### A series of books.
+class: BookSeries
+table: book_series
+fields:
+  ### The name of this series.
+  name: String
+
+  ### The books in this series.
+  booksSecondary: List<BookSeriesSecondary>?, relation(name=series_secondary)

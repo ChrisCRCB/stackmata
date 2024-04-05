@@ -1,0 +1,9 @@
+### An award given to a book.
+class: BookAward
+table: book_awards
+fields:
+  ### The name of this award.
+  name: String
+
+  ### The books with this award.
+  books: List<BookAwardSecondary>?, relation(name=book_awards_secondary)

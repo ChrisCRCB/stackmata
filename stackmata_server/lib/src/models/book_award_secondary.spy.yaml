@@ -1,0 +1,9 @@
+### Link books to awards.
+class: BookAwardSecondary
+table: book_award_secondary
+fields:
+  ### The award given to a book.
+  award: BookAward?, relation(name=book_awards_secondary, onDelete=cascade)
+
+  ### The book to use.
+  book: Book?, relation(name=book_awards, onDelete=cascade)

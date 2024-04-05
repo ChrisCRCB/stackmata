@@ -1,0 +1,9 @@
+### The genre of a book.
+class: BookGenre
+table: book_genres
+fields:
+  ### The name of this genre.
+  name: String
+
+  ### The books with this genre.
+  books: List<BookGenreSecondary>?, relation(name=book_genre_secondary)

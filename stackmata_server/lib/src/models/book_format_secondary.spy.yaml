@@ -1,0 +1,9 @@
+### Link books to formats.
+class: BookFormatSecondary
+table: book_format_secondary
+fields:
+  ### The format of the book.
+  bookFormat: BookFormat?, relation(name=book_format_secondary, onDelete=cascade)
+
+  ### The book to use.
+  book: Book?, relation(name=book_formats, onDelete=cascade)

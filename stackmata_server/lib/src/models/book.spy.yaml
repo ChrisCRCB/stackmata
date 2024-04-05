@@ -1,0 +1,42 @@
+### A book in the database.
+class: Book
+table: books
+fields:
+  ### The title of this book.
+  title: String
+
+  ### The book authors of this book.
+  authors: List<BookAuthorSecondary>?, relation(name=book_authors)
+
+  ### The publisher of this book.
+  publisher: String
+
+  ### The summary of this book.
+  summary: String
+
+  ### The languages of this book.
+  language: List<BookLanguageSecondary>?, relation(name=book_language_secondary)
+
+  ### Any series this book is part of.
+  series: List<BookSeriesSecondary>?, relation(name=book_series)
+
+  ### Any awards this book has won.
+  awards: List<BookAwardSecondary>?, relation(name=book_awards)
+
+  ### The genres of this book.
+  genres: List<BookGenreSecondary>?, relation(name=book_genres)
+
+  ### Data attribution.
+  source: String
+
+  ### The date this book was added to the library.
+  entryDate: DateTime
+
+  ### The formats this book is in.
+  formats: List<BookFormatSecondary>?, relation(name=book_formats)
+
+  ### The number of copies we have for borrowing.
+  numberOfCopies: int
+
+  ### The call numbers.
+  callNumbers: List<BookCallNumber>?, relation(name=book_call_numbers)

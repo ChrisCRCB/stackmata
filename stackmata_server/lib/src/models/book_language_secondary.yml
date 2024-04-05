@@ -1,0 +1,9 @@
+### Link books to languages.
+class: BookLanguageSecondary
+table: book_language_secondary
+fields:
+  ### The language to use.
+  bookLanguage: BookLanguage?, relation(name=language_secondary, onDelete=cascade)
+
+  ### The book to use.
+  book: Book?, relation(name=book_language_secondary, onDelete=cascade)

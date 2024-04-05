@@ -1,0 +1,9 @@
+### Connect books to authors.
+class: BookAuthorSecondary
+table: book_author_secondary
+fields:
+  ### The author to use.
+  bookAuthor: BookAuthor?, relation(name=book_author_secondary, onDelete=cascade)
+
+  ### The book to link the [author] to.
+  book: Book?, relation(name=book_authors, onDelete=cascade)

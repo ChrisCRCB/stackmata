@@ -1,0 +1,9 @@
+### The language of a book.
+class: BookLanguage
+table: book_languages
+fields:
+  ### The name of this language.
+  name: String
+
+  ### The entries linking a language to books.
+  secondaries: List<BookLanguageSecondary>?, relation(name=language_secondary)

@@ -1,0 +1,9 @@
+### Connect books to book series.
+class: BookSeriesSecondary
+table: book_series_secondary
+fields:
+  ### The series to use.
+  series: BookSeries?, relation(name=series_secondary, onDelete=cascade)
+
+  ### The book to use.
+  book: Book?, relation(name=book_series, onDelete=cascade)

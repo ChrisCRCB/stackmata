@@ -1,0 +1,12 @@
+### The format of a book.
+class: BookFormat
+table: book_formats
+fields:
+  ### The ID of this format.
+  code: String
+
+  ### The name of this format.
+  name: String
+
+  ### The books which have this format.
+  books: List<BookFormatSecondary>?, relation(name=book_format_secondary)

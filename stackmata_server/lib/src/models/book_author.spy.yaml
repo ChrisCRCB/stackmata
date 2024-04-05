@@ -1,0 +1,15 @@
+### The author of a book.
+class: BookAuthor
+table: book_authors
+fields:
+  ### The name of the author as Last, First.
+  lastFirst: String
+
+  ### The name of the author as First, Last.
+  firstLast: String
+
+  ### The role of this person.
+  role: String
+
+  ### The books this author is involved in.
+  bookAuthors: List<BookAuthorSecondary>?, relation(name=book_author_secondary)

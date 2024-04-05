@@ -1,0 +1,11 @@
+### A call number for a book.
+###
+### Call numbers are unique to each book.
+class: BookCallNumber
+table: book_call_numbers
+fields:
+  ### The call number of the book.
+  callNumber: String
+
+  ### The book this call number is associated with.
+  book: Book?, relation(name=book_call_numbers, onDelete=cascade)
